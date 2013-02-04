@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <title>Sequence Diagram of Die Example</title>
+    </head>
+    <body>
+        <div class=wsd wsd_style="">
+            <pre>
+                index.html->dc:DiceController: create
+                dc->d:Die: create
+                dc->dtv: DieTextView: create
+                dtv->document:createElement("div")
+                dc->div: DieImageView: create
+                div->document:createElement("div")
+                dc->d: addEventListener(dtv.handleThrow)
+                dc->d: addEventListener(div.handleThrow)
+                document->document:onclick
+                document->dc:throwDice
+                dc->d:throwMe
+                d->d:fire({type:"throwEvent",value:5})
+                d->dtv:handleThrow
+                dtv->dtv:showText
+                d->div:handleThrow
+                div->div:showImage
+            </pre>
+        </div>
+        <script type="text/javascript" src="http://www.websequencediagrams.com/service.js"></script>
+    </body>

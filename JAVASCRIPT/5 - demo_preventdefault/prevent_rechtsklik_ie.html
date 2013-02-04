@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>kill default behaviour</title>
+  <style>
+  body{
+    background-color	: green;
+  }
+  #divtekst{
+    background-color	: yellow;
+    font-size		: 20px;
+  }  
+  #divblauw{
+    background-color	: blue;
+    font-size		: 2em;
+    width		: 100px;
+    height		: 100px;
+    margin		: 30px;
+  }
+  #divrood{
+    background-color	: red;
+    font-size		: 2em;
+    width		: 100px;
+    height		: 100px;
+    margin		: 30px;
+   }
+
+  </style>
+  <script language="JavaScript" type="text/javascript">
+  function stopRechtsKlik1(e)
+  {
+    alert("rechtsKlik1 op blauw");
+    alert("Klik coordinaten zijn: (" + e.clientX + "," + e.clientY + ")");
+  }
+  function stopRechtsKlik2(e)
+  {
+    alert("rechtsKlik2 op rood");
+    alert("Klik coordinaten zijn: (" + e.clientX + "," + e.clientY + ")");
+    e.returnValue=false;
+    e.cancelBubble=true;
+  }
+  function stopRechtsKlik3(e)
+  {
+    //alert("rechtsKlik3");
+    //alert("Klik coordinaten zijn: (" + e.clientX + "," + e.clientY + ")");
+  }
+  </script>
+</head>
+<body oncontextmenu="stopRechtsKlik3(event);">
+ <div id="divblauw" oncontextmenu="stopRechtsKlik1(event);">
+   DIV
+ </div> 
+ <div id="divrood" oncontextmenu="stopRechtsKlik2(event);">
+   DIV
+ </div> 
+ <div id="divtekst">
+   <p>
+     1.Rechtsklik ergens in het groene scherm. Een menu opent zich zoals je zou verwachten. 
+     Het is namelijk default gedrag van een browser.
+   <p>
+     2.Rechtsklik nu op het blauwe divje. Er komt in eerste instantie geen menu. 
+     De eventhandler voor oncontextmenu handelt het event eerst af. Dan komt er toch
+     een menu, omdat de rechtsklik door gaat door de DIV naar de BODY.
+   </p> 
+   <p>
+     3.Rechtsklik nu op het rode divje. Er komt in eerste instantie geen menu. 
+     De eventhandler voor oncontextmenu handelt het event eerst af. Ook in tweede instantie 
+     komt er geen menu. De div heeft de zgn event bubbling onderbroken.
+   </p> 
+   <p>
+     Kijk in de source van de pagina om te zien welke code hierachter zit.
+   </p> 
+   <p>
+     4.Verwijder het commentaartekens(//) uit de functie stopRechtKlik3() en kijk
+     wat er gebeurd als je nu ergens rechts klikt op het groene scherm.
+   </p> 
+   <p>
+     Dit event kan op meerdere elementen worden afgevangen. O.a. ook op plaatjes.
+   </p> 
+  </div>
+</body>
+</html>

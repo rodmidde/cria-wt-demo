@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <title>CSS Positioning</title>
+    <link href="1.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css" media="screen">
+            /* These inline styles will always be active even if an alternate
+                stylesheet is selected with the stylesheet swticher */
+
+        #example {
+            float: right;
+        }
+
+        #example div {
+        }
+
+        #div-before, #div-after {
+            background-color: #88d;
+            color: #000;
+        }
+
+        #div-1 {
+            width: 400px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        #div-1-padding {
+            padding: 10px;
+        }
+
+        #div-1a {
+            background-color: #d33;
+            color: #fff;
+        }
+
+        #div-1b {
+            background-color: #3d3;
+            color: #fff;
+        }
+
+        #div-1c {
+            background-color: #33d;
+            color: #fff;
+        }
+
+        #example div p {
+            margin: 0 .25em;
+            padding: .25em 0;
+        }
+
+        #description {
+            float: left;
+            width: 40%;
+        }
+
+        pre {
+            padding: 1em;
+            border: 1px dashed #aaa;
+            background: #fafafa;
+        }
+
+        p {
+            margin: 0.5em 0;
+        }
+
+        h3 {
+            color: #999;
+        }
+
+        .job {
+            margin-top: 1em;
+            border: 1px solid #aaa;
+            padding: 1em;
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+<div id="example">
+    <div id="div-before">
+        <p>
+            id = div-before
+        </p>
+    </div>
+    <div id="div-1">
+        <div id="div-1-padding">
+            <p>
+                id = div-1
+            </p>
+
+            <div id="div-1a">
+                <p>
+                    id = div-1a
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer pretium dui sit amet felis.
+                    Integer sit amet diam. Phasellus ultrices viverra velit.
+                </p>
+            </div>
+            <div id="div-1b">
+                <p>
+                    id = div-1b
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer pretium dui sit amet felis.
+                    Integer sit amet diam. Phasellus ultrices viverra velit. Nam mattis, arcu ut bibendum commodo, magna
+                    nisi tincidunt tortor, quis accumsan augue ipsum id lorem.
+                </p>
+            </div>
+            <div id="div-1c">
+                <p>
+                    id = div-1c
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- /id=div-1-padding /id=div-1 -->
+    <div id="div-after">
+        <p>
+            id = div-after
+        </p>
+    </div>
+</div>
+</body>
+</html>

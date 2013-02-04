@@ -1,0 +1,27 @@
+.div1 {
+    text-align: center;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border: black solid 2px;
+    position: absolute;
+    z-index: 1;
+    top: 200px;
+    left: 200px;
+}
+
+.div2 {
+    text-align: center;
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    border: black solid 2px;
+    position: absolute;
+    z-index: 1;
+}
+
+.div3 {
+    background-color: yellow;
+    border: black solid 2px;
+    position: absolute;
+}

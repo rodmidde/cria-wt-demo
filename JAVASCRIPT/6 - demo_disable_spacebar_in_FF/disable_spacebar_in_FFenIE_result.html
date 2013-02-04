@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Disable Spacebar</title>
+  <style>
+  body{
+    background-color	: green;
+  }
+  #divtekst{
+    background-color	: yellow;
+    font-size		: 20px;
+  }  
+  #divblauw{
+    background-color	: blue;
+    font-size		: 2em;
+    width		: 100px;
+    height		: 1400px;
+    margin		: 30px;
+    float		: left;
+  }
+
+  </style>
+  <script language="JavaScript" type="text/javascript">
+  function zomaar_een_functie()
+  {
+    alert("aangeroepen mbv de spacebar");
+  }
+
+  function vangToetsOp(e) //OP KEYdown WERKT HET NIET
+  {
+    //EERST EVEN KIJKEN WELKE BROWSER OM DE CODE TE BEPALEN
+    //=====================================================
+    var code;
+    //e = e || window.event; //HIERMEE KILL JE HET HUIDIGE EVENT
+    if (e.keyCode) // IE
+    {
+      code = e.keyCode;
+      alert("IE:toets is " + code);
+    } 
+    else if(e.which) // Netscape/Firefox/Opera
+    {
+      code = e.which;
+      alert("FF:toets is " + code);
+    }
+    
+    //SPATIEBALK IS code32
+    //=====================================
+    if (code == 32) //SPATIEBALK
+    {
+     zomaar_een_functie();
+     if (e.stopPropagation) //if FF
+      {
+        e.preventDefault();  //Voor FF
+      }
+      else
+      {
+        e.returnValue = false; //voor IE
+        return false;          //Voor IE
+      }
+    }
+  }
+  </script>
+</head>
+<body onkeypress="vangToetsOp(event);"> 
+ <div id="divblauw">
+   DIV
+ </div> 
+ <div id="divtekst">
+   <p>
+     1.Druk op de spatiebalk en je zult zien dat het window automatisch naar beneden schuift.
+     Dit is default gedrag in Firefox. Gedrag dat je kunt uitschakelen.
+   <p>
+     2.Zet in de bodytag de volgende eventhandler: <b>onkeypress="vangToetsOp(event);"</b>
+   </p> 
+   <p>
+     3.Druk wederom op de spatiebalk in de browser en dit keer gebeurd er niets, dwz er wordt 
+     niet meer gescrolld
+   </p> 
+  </div>
+</body>
+</html>

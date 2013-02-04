@@ -1,0 +1,15 @@
+.nivo1
+{	text-align:center;
+ 	background-color:green;
+	border:solid #006400 2px ;
+     	width:800px;
+  	height:800px;
+}
+.nivo2
+{	text-align:center;
+	margin:auto; /*ANDERS DOET FIREFOX HET NIET*/
+ 	background-color:yellow;
+	border:solid #006400 2px ;
+     	width:600px;
+  	height:600px;
+}

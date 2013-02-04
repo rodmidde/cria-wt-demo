@@ -1,0 +1,29 @@
+/**
+ * 	CSS om te kijken naar de rol van overflow icm float
+ */
+p, h1 {
+	margin: 10px;
+}
+
+#container {
+	width: 800px;
+	background-color: #CCDD55;
+	border: 4px solid black;
+	overflow: hidden;
+}
+
+#left {
+	border: 2px solid black;
+	background-color: #008000;
+	margin: 20px;
+    float: left;
+	width: 20%;
+}
+
+#right {
+	border: 2px solid black;
+	background-color: #0055FF;
+	margin: 20px;
+	float: left;
+	width: 60%;
+}

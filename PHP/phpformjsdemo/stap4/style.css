@@ -1,0 +1,58 @@
+body {
+    font: normal 72% Arial, Helvetica, Verdana, sans-serif;
+}
+
+label.required {
+    color: #FF0000;
+}
+
+div {
+    width: 500px;
+}
+
+#smstextArea {
+    border: dashed;
+    border-color: #000000;
+    border-width: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#foutmeldingen {
+	background-color: #EEBBBB;
+	border-width: 1px;
+	border-color: #ff0000;
+}
+
+.infolabel {
+    vertical-align: top;
+    float: right;
+}
+
+.required {
+    float: right;
+}
+
+#sendButton {
+    margin-top: 10px;
+}
+
+.validField {
+    background-color: #008000;
+}
+
+.invalidField {
+    background-color: #800000;
+}
+
+.emptyField {
+    background-color: #ffffff;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}

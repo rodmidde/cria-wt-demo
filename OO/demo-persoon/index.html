@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Oooooo</title>
+		<script src="Persoon.js" type="application/javascript"></script>
+		<script src="Docent.js" type="application/javascript"></script>
+		<script src="Student.js" type="application/javascript"></script>
+		<script src="Vak.js" type="application/javascript"></script>
+	</head>
+	<body>
+		<script type="application/javascript">
+			var p = new Persoon("Rody", "", "Middelkoop", "13-09-1975");
+			var d = new Docent("Rody", "", "Middelkoop", "13-09-1975", 10000, [new Vak("CRIA")]);
+			var s = new Student("Teun", "van", "Middelkoop", "14-10-2005", 30, [new Vak("Tekenen"), new Vak("Buitenspelen")])
+			p.toon()
+			s.toon()
+			d.toon()
+		</script>>
+	</body>
+</html>

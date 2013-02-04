@@ -1,0 +1,38 @@
+/**
+ * CSS die float met innerdivs gebruikt om een liquid 
+ * layout te krijgen. 
+ */
+p, h1 {
+	margin: 10px;
+}
+
+#container {
+	width: 800px;
+	background-color: #CCDD55;
+	border: 4px solid black;
+	overflow: hidden;
+}
+
+#left {
+	float: left;
+	width: 20%;
+	background-color: green;
+}
+
+#left_inner {
+	border: 2px solid black;
+	margin: 20px;
+	background-color: #008000;
+}
+
+#right {
+	float: left;
+	width: 80%;
+	background-color: blue;
+}
+
+#right_inner {
+	border: 2px solid black;
+	margin: 20px;
+	background-color: #0055FF;
+}

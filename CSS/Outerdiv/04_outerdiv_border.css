@@ -1,0 +1,42 @@
+/**
+ * 	CSS om te laten zien hoe je randen om een div kunt forceren
+ *  - innerdiv
+ *  - outerdiv
+ *  
+ */
+p, h1 {
+	margin: 0;
+	padding: 10px;
+}
+
+#container {
+	max-width: 800px;
+	background-color: #FFFF00;
+	overflow: hidden;
+}
+
+#left {
+	float: left;
+	width: 50%;
+	background-color: green; /* black */
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
+}
+
+#left_inner {
+	margin: 0 4px;
+	background-color: #008000;
+}
+
+#right {
+	float: left;
+	width: 50%;
+	background-color: blue; /* black */
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
+}
+
+#right_inner {
+	margin: 0 4px;
+	background-color: #0055FF;
+}

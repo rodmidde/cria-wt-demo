@@ -1,0 +1,16 @@
+.container
+{
+    float:left;
+    width: 400px;
+    height: 400px;
+}
+
+.left
+{
+    background-color: #33DD33;
+}
+
+.right
+{
+    background-color: #DD3333; 
+}

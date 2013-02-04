@@ -1,0 +1,97 @@
+<html>
+<head>
+<style>
+h1    		
+{	background-color:red;
+}
+
+.nivo1 div 	
+{	background-color:blue;
+	width           :200px;
+}
+.nivo2 div 	
+{background-color:green;
+}
+</style>
+<script language = "JavaScript">
+function veranderbody(obj)
+{
+	alert(obj.parentNode.tagName);
+	obj.parentNode.style.background="red";
+}
+function kleurwisselen(obj)
+{
+	div1=obj.parentNode.childNodes[3] //de eerste DIV
+//	alert("1"+ obj.parentNode.childNodes[1].tagName);
+//	alert("2"+ obj.parentNode.childNodes[2].tagName);
+//	alert("3"+ obj.parentNode.childNodes[3].tagName);
+//	alert("4"+obj.parentNode.childNodes[4].tagName);
+//	alert("5"+obj.parentNode.childNodes[5].tagName);
+//	alert("6"+obj.parentNode.childNodes[6].tagName);
+//	alert("7"+obj.parentNode.childNodes[7].tagName);
+//	alert("8"+obj.parentNode.childNodes[8].tagName);
+//	alert("9"+obj.parentNode.childNodes[9].tagName);
+//	alert("10"+obj.parentNode.childNodes[10].tagName);
+//	alert("11"+obj.parentNode.childNodes[11].tagName);
+//	alert(div1.className);
+	div2=obj.parentNode.childNodes[7] //de tweede div
+	if(div1.className=="nivo1")
+	{
+		div1.className="nivo2";
+		div2.className="nivo1";
+	}
+	else
+	{
+		div1.className="nivo1";
+		div2.className="nivo2";
+	}
+}
+function leesregel(obj)
+{
+	//divs=document.getElementsByTagName("div");
+	//alert(divs[3].childNodes[0].nodeValue);
+	alert(obj.parentNode.childNodes[3].childNodes[5].firstChild.nodeValue);
+}
+function veranderregel(object)
+{
+	kopregel=document.getElementsByTagName("h1")[0];
+	kopregel.firstChild.nodeValue="Dit is een andere tekst";
+}
+function verandertekst(obj)
+{
+	obj.parentNode.childNodes[7].childNodes[7].firstChild.nodeValue="sdgfjagagag";
+	alert(obj.parentNode.childNodes[7].childNodes[7].tagName);
+}
+function verandertekst2(obj)
+{
+	//obj.parentNode.childNodes[1].childNodes[1].firstChild.nodeValue="bla";
+	//nodes=document.getElementsByTagName("div");
+	//nodes[2].firstChild.nodeValue="blabla";
+	document.getElementsByTagName("div")[2].firstChild.nodeValue="blabla";
+}
+</script>
+</head>
+<body style= "background-color:white;">
+    <h1>Dit is een H1 blok</h1>
+    <div class="nivo1">
+      <div><em>Sikkels blinken sikkels klinken</em></div>
+      <div>Ruisend valt het graan </div>
+      <div>Als je iemand weg ziet hinken</div>
+      <div>Heeft hij het fout gedaan</div>
+    </div>
+    <hr>
+    <div class="nivo2">
+      <div><em>Sikkels blinken sikkels klinken</em></div>
+      <div>Ruisend valt het graan </div>
+      <div>Als je iemand weg ziet hinken</div>
+      <div>Heeft hij het fout gedaan</div>
+    </div>
+    <hr>
+    <input type="button" width="400" value="kleur wisselen" onclick="kleurwisselen(this);"/>
+    <input type="button" width="400" value="lees gedichtregel" onclick="leesregel(this);"/>
+    <input type="button" width="400" value="verander kopregel" onclick="veranderregel(this);"/>
+    <input type="button" width="400" value="verander tekst" onclick="verandertekst(this);"/>
+    <input id="xx" type="button" width="400" value="verander bodycolor" onclick="veranderbody(this);"/>
+    <input type="button" width="400" value="verander tekst2" onclick="verandertekst2(this);"/>
+</body>
+</html>

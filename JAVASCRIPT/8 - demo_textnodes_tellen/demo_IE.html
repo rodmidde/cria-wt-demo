@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+h1    		
+{	background-color:red;
+}
+
+.nivo1 div 	
+{	background-color:yellow;
+	width           :200px;
+}
+.nivo2 div 	
+{background-color:lime;
+}
+</style>
+<script language = "JavaScript">
+function changebodycolor(obj)
+{
+	alert(obj.parentNode.tagName);
+	obj.parentNode.style.background="red";
+}
+function changecolor(obj)
+{
+	div1=obj.parentNode.childNodes[1] //de eerste DIV
+	div2=obj.parentNode.childNodes[3]
+	if(div1.className=="nivo1")
+	{
+		div1.className="nivo2";
+		div2.className="nivo1";
+	}
+	else
+	{
+		div1.className="nivo1";
+		div2.className="nivo2";
+	}
+}
+function readline(obj)
+{
+	alert(obj.parentNode.childNodes[1].childNodes[2].firstChild.nodeValue);
+}
+function changeheader(object)
+{
+	kopregel=document.getElementsByTagName("h1")[0];
+	kopregel.firstChild.nodeValue="CHANGEHEADER";
+}
+function changeline(obj)
+{
+	obj.parentNode.childNodes[3].lastChild.firstChild.nodeValue="CHANGELINE";
+}
+function changeline2(obj)
+{
+	document.getElementsByTagName("div")[2].firstChild.nodeValue="CHANGELINE2";
+}
+</script>
+</head>
+<body style= "background-color:white;">
+    <h1>This is a H1 blok</h1>
+    <div class="nivo1">
+      <div><em>Archimedes, the well known truth-seeker</em></div>
+      <div>Jumping out of his bath, cried "Eureka! (changed by changeline2)</div>
+      <div>He ran half a mile, Wearing only a smile</div>
+      <div>And became the very first streaker</div>
+    </div>
+    <hr>
+    <div class="nivo2">
+      <div><em>There once was an old man of Esser</em></div>
+      <div>Whose knowledge grew lesser and lesser</div>
+      <div>It at last grew so small, He knew nothing at all</div>
+      <div>And now he's a college professor(changed by changeline)</div>
+    </div>
+    <hr>
+    <input type="button" width="400" value="change color" onclick="changecolor(this);"/>
+    <input type="button" width="400" value="read line" onclick="readline(this);"/>
+    <input type="button" width="400" value="change header" onclick="changeheader(this);"/>
+    <input type="button" width="400" value="change line" onclick="changeline(this);"/>
+    <input id="xx" type="button" width="400" value="change bodycolor" onclick="changebodycolor(this);"/>
+    <input type="button" width="400" value="change line 2" onclick="changeline2(this);"/>
+</body>
+</html>

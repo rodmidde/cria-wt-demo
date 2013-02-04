@@ -1,0 +1,44 @@
+/*
+ * {
+ margin: 0;
+ padding: 0;
+ }
+ */
+body {
+    background: #123456;
+}
+
+h1 {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+#tableContainer {
+    background: #123400;
+    max-width: 900px;
+    min-width: 500px;
+    float: left;
+}
+
+img {
+    margin: 10px;
+    border: solid;
+    border-color: #0055FF;
+    float: left;
+}
+
+#isZwartKrijgtRoodRandje {
+    height: 100px;
+    width: 100px;
+    background-color: #000000;
+    float: left;
+}
+
+.hoveringelement:hover {
+    border: solid;
+    border-color: red;
+}
+
+tr > td:first-child {
+    color: #CCDD55;
+}
