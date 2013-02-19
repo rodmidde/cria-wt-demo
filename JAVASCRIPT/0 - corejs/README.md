@@ -1,0 +1,16 @@
+Checklist:
+- case sensitive
+- type system, typeof vs typeOf
+- statements and ;
+- var and undeclared variables
+- floating point accuracy
+- parseInt, + operator
+- modulo
+- for, for-in
+- objects, with
+- functions and arguments
+- overloading
+- scoping and var keyword
+- objects with methods
+- filter, every, some and map
+- arrays of functions
