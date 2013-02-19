@@ -16,5 +16,7 @@ To create this project yourself from scratch (thanks to http://blog.akquinet.de/
 - Modify the code, add code, add test cases etc.
 
 FOR EVERY STRATEGY
+- Open a MSDOS/CMD (Windows) or Terminal Window (Mac, Linux)
+- Navigate to the root of your project directory containing the pom.xml file
 - Run: mvn clean site. It will run testcases, generate code coverage, minify source code, generate JSDoc documentation and shows JSLint parsing results
 - Open target/site/index.html to see how you're doing
