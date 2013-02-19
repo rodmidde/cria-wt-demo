@@ -1,0 +1,24 @@
+li {
+    /* Switch from block to inline-block and see what happens with the whitespacing */
+    display: block;
+
+    /**
+        From: http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+
+        The reason you get the spaces is because, well, you have spaces between the elements (a line break and a few tabs counts as a space, just to be clear).
+        Several options:
+        - remove the li closing tag (not necessary in HTML5)
+        - start div on a newline
+        - add HTML comments
+        - negative margin
+    */
+
+
+}
+
+.blokje
+{
+    background-color: #008000;
+    width: 100px;
+    height: 100px;
+}
