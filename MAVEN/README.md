@@ -1,4 +1,6 @@
 There are two strategies to start working with the project, however first you need to:
+- Download and install the latest JDK1.6 (!) version
+- Set the Environment Variable JAVA_HOME to the location of your JDK installation path (usually c:\program files\Java\jdk1.6_22)
 - Download and install Maven 3.0.4
 - Add the bin-path of the Maven-install location to your PATH by adding/changing the PATH Environment Variable (http://java.com/en/download/help/path.xml)
 
