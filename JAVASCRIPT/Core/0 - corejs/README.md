@@ -12,5 +12,5 @@ Checklist:
 - overloading
 - scoping and var keyword
 - objects with methods
-- filter, every, some and map
+- filter, every, some and map (function(item, index, array))
 - arrays of functions
