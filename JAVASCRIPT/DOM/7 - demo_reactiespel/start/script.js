@@ -1,22 +1,22 @@
 var starttime;
 var endtime;
 var action;
-var alledivs;
+var allBlocks;
 
-function verander(obj){
-
+function fixPosition(block) {
 }
 
-function startgame(){
-
+function startGame() {
 }
 
-function endgame(){
-
+function endGame() {
 }
 
-function allesgroen(){
+function isEveryThingGreen() {
 }
 
-function spring(){
+function moveBlocksAround() {
+}
+
+function createBlocks() {
 }

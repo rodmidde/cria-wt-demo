@@ -3,7 +3,7 @@ var endtime;
 var action;
 var alledivs;
 
-function verander(obj){
+function fixPosition(obj){
     obj.className = "div2";
 }
 
@@ -49,7 +49,7 @@ function createBlokjes(){
 		var newDiv = document.createElement("div")
 		newDiv.className = "div1"
 		newDiv.onclick = function(){
-			verander(this);
+			fixPosition(this);
 		}
 		var content = document.createTextNode(i)
 		newDiv.appendChild(content)
