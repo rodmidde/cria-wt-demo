@@ -5,8 +5,11 @@
     <title>Frameset document in HTML4 - Don't try this at home</title>
 </head>
 <frameset cols="20%, 80%">
-    <frameset rows="100, 200">
-        <frame src="contents_of_frame1.html"/>
+    <frameset rows="80%, 20%">
+        <frameset rows="50%, 50%">
+            <frame src="contents_of_frame1.html"/>
+            <frame src="contents_of_frame1.html"/>
+        </frameset>
         <frame src="images/contents_of_frame2.gif"/>
     </frameset>
     <frame src="contents_of_frame3.html"/>

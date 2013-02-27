@@ -1,1 +1,16 @@
+<h4>The difference between target="_parent" and target="_top"?</h4>
 Don't use frames, they have a lots of disadvantages.
+<ul>
+    <li><a href="contents_of_frame3.html" target="_self">Load content in current frame</a></li>
+    <li><a href="contents_of_frame3.html" target="_parent">Load content in parent frame</a></li>
+    <li><a href="contents_of_frame3.html" target="_top">Load content in current window</a></li>
+
+    <p>
+        Well it comes about if you have nested frames. If the frame document brings up another frame document and you get a set of frames that are inside one of the frames of the first set.
+        If this sub-frame has a link to a page and it sets target="_top" then it goes to the top of this stack, and replaces the outer frame document, and subsequently the entire browser window.
+        If it has a link with a target="_parent" then it replaces it's immediate parent, and just replaces the frame window that this second set of frames was occupying in the top set of windows. I'm sorry but
+        I don't have the patience to diagram this using ascii characters but you can see a good explanation in HTML the Definitive Guide, or you can just note that while these two are exactly the same if there is only one set of frames, if you have nested frames "_parent" only removes one level of frames, "_top" removes all frames, so "_top" is your better choice. And it is less typing ;->.
+    </p>
+    -- Eric Stokien
+</ul>
+
