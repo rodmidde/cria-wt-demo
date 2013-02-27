@@ -49,13 +49,16 @@ function checkBlockedPopup() {
     var blocked = false;
     try {
         var newWin = window.open("http://www.han.nl", "", "height=500, width=500");
-        if (newWin == null) {
+        if (newWin == null || newWin.screenTop == 0) {
             blocked = true;
         }
     } catch (ex) {
         blocked = true;
     }
+    /**
+     * Browser popup blocker stops execution of script, so only in the debugger the last block is reached
+     */
     if (blocked) {
-        alert("The popup was blocked!");
+        document.body.appendChild(document.createElement("p").appendChild(document.createTextNode("Blocked!")));
     }
 }

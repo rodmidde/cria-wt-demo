@@ -7,7 +7,7 @@
     <title>How window.open works</title>
     <script type="text/javascript" src="script/openWindows.js"></script>
 </head>
-<body>
+<body onload="checkBlockedPopup();">
     <input type="button" alt="Open a Blank Window" value="Open Blank Window" onclick="openBlankWindow();"/>
     <input type="button" alt="Replace Current Window" value="Replace Current Window" onclick="replaceWindow();"/>
     <input type="button" alt="Replace Current Window And Rewrite History" value="Replace Current Window And Rewrite History" onclick="replaceWindowAndRewriteHistory();"/>
