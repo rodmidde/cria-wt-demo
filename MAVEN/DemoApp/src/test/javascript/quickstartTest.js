@@ -24,6 +24,10 @@ describe('The add functions',function(){
         expect(result).toEqual(expectedResult);
     });
 
+    it('document should not be undefined', function() {
+       expect(document.body).toEqual(undefined);
+    });
+
     /*
     it('should return a raster 1x1 when only one photo available', function() {
 

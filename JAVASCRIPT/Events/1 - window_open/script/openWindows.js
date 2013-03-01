@@ -27,6 +27,14 @@ function replaceWindow() {
  */
 function replaceWindowAndRewriteHistory() {
     window.open("about:blank", "_self", "", true);
+
+    for(var i=0;i<5;i++)
+    {
+        for(var j=0;j<4567;j++)
+        {
+            alert(i+j);
+        }
+    }
 }
 
 function openNewWindow() {
