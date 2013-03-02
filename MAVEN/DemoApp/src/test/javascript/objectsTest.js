@@ -12,7 +12,7 @@ describe('The object "Rody', function () {
     it('has two children after making love to wife', function () {
         var wife = {
             name:"Janneke",
-            children:new Array(),
+            children:[],
             makeLoveTo:function (husband, nameOfKid) {
                 husband.children.push({name:nameOfKid});
                 this.children.push({name:nameOfKid});

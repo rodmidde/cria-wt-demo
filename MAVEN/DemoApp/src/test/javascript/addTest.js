@@ -15,4 +15,7 @@ describe('The add functions',function(){
         expect(result).toBe(5);
     });
 
+    it('should return NaN when the parameters are missing', function(){
+       expect(isNaN(addNumbers())).toBe(true);
+    });
 });

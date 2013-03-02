@@ -16,18 +16,35 @@ function determineRaster(numberOfPhotos) {
     return {aantalRijen:roundedSqrtOfNumberOfPhotos, aantalKolommen:roundedSqrtOfNumberOfPhotos + (Number)(restOfRoundenSqrtOfNumberOfPhotos > 0)};
 }
 
-function tryAddImagesToContainer(imageData)
-{
-    function addImagesToContainer() {
-        for (img in imageData) {
+/**
+ * Tries to add images to the DOM
+ * @pre There is a div available called "container"
+ *
+ * @param imageData
+ */
+function tryAddImagesToContainer(imageData) {
+    function createAndAddImage() {
+        function createImageWithSource() {
             var imageElement = document.createElement("img");
             imageElement.src = img.url;
+            return imageElement;
+        }
+
+        // if is due to JSLint: http://www.jslint.com/lint.html#forin
+        if (imageData.hasOwnProperty(img)) {
+            var imageElement = createImageWithSource();
             document.getElementById("container").appendChild(imageElement);
+        }
+        return imageElement;
+    }
+
+    function addImagesToContainer() {
+        for (img in imageData) {
+            var imageElement = createAndAddImage();
         }
     }
 
-    if (imageData)
-    {
+    if (imageData) {
         addImagesToContainer();
     }
 }
