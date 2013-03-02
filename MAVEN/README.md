@@ -14,7 +14,7 @@ To create this project yourself from scratch (thanks to http://blog.akquinet.de/
 - Open the project in PHPStorm/IntelliJ/etc.
 - Open pom.xml
 - Add the tag junitXmlReportFileName with the value ../surefire-reports/TEST-jasmine.xml to the configuration section of the jasmine-maven-plugin
-- Add site.xml to the src/site folder
+- Add site.xml to the src/site folder (this is only for custom Maven reporting, don't add your html or css here)
 - Modify the code, add code, add test cases etc.
 
 FOR EVERY STRATEGY
