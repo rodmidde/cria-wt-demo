@@ -4,6 +4,9 @@
  */
 
 describe('The object "Rody', function () {
+    it('had a name called "Rody"', function(){
+       expect(rody.getName()).toEqual("Rody");
+    });
 
     it('has no children before marriage', function () {
         expect(rody.hasChildren()).toEqual(false);

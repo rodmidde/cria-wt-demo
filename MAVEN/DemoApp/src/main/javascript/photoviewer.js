@@ -23,24 +23,14 @@ function determineRaster(numberOfPhotos) {
  * @param imageData
  */
 function tryAddImagesToContainer(imageData) {
-    function createAndAddImage() {
-        function createImageWithSource() {
-            var imageElement = document.createElement("img");
-            imageElement.src = img.url;
-            return imageElement;
-        }
-
-        // if is due to JSLint: http://www.jslint.com/lint.html#forin
-        if (imageData.hasOwnProperty(img)) {
-            var imageElement = createImageWithSource();
-            document.getElementById("container").appendChild(imageElement);
-        }
-        return imageElement;
-    }
-
     function addImagesToContainer() {
         for (img in imageData) {
-            var imageElement = createAndAddImage();
+            // if is due to JSLint: http://www.jslint.com/lint.html#forin
+            if (imageData.hasOwnProperty(img)) {
+                var imageElement = document.createElement("img");
+                imageElement.src = img.url;
+                document.getElementById("container").appendChild(imageElement);
+            }
         }
     }
 
