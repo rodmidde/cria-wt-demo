@@ -16,15 +16,18 @@ function determineRaster(numberOfPhotos) {
     return {aantalRijen:roundedSqrtOfNumberOfPhotos, aantalKolommen:roundedSqrtOfNumberOfPhotos + (Number)(restOfRoundenSqrtOfNumberOfPhotos > 0)};
 }
 
-function addImagesToContainer(imageData)
+function tryAddImagesToContainer(imageData)
 {
-    if (imageData)
-    {
-        for(img in imageData)
-        {
+    function addImagesToContainer() {
+        for (img in imageData) {
             var imageElement = document.createElement("img");
             imageElement.src = img.url;
             document.getElementById("container").appendChild(imageElement);
         }
+    }
+
+    if (imageData)
+    {
+        addImagesToContainer();
     }
 }

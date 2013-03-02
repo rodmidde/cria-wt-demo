@@ -39,12 +39,12 @@ describe('The photoviewer', function () {
     });
 
     it('should have zero images when the addImagesToContainer function is called without arguments', function() {
-        addImagesToContainer();
+        tryAddImagesToContainer();
         expect(document.images.length).toBe(0);
     });
 
     it('should have one image when the addImagesToContainer function is called with an array of length 1', function() {
-        addImagesToContainer([{url:"somePicture.jpg"}]);
+        tryAddImagesToContainer([{url:"somePicture.jpg"}]);
         expect(document.images.length).toBe(1);
     });
 });
