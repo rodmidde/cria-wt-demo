@@ -9,11 +9,10 @@
  * @return {Object}
  */
 function determineRaster(numberOfPhotos) {
-    var sqrtOfNumberOfPhotos = Math.sqrt(numberOfPhotos);
-    var roundedSqrtOfNumberOfPhotos = Math.round(sqrtOfNumberOfPhotos);
-    var restOfRoundenSqrtOfNumberOfPhotos = numberOfPhotos % roundedSqrtOfNumberOfPhotos;
-
-    return {aantalRijen:roundedSqrtOfNumberOfPhotos, aantalKolommen:roundedSqrtOfNumberOfPhotos + (Number)(restOfRoundenSqrtOfNumberOfPhotos > 0)};
+    var roundedSqrtOfNumberOfPhotos = Math.round(Math.sqrt(numberOfPhotos));
+    return {
+        aantalRijen:roundedSqrtOfNumberOfPhotos,
+        aantalKolommen:roundedSqrtOfNumberOfPhotos + (Number)((numberOfPhotos % roundedSqrtOfNumberOfPhotos) > 0)};
 }
 
 /**
@@ -24,10 +23,10 @@ function determineRaster(numberOfPhotos) {
  */
 function tryAddImagesToContainer(imageData) {
     function addImagesToContainer() {
-        for (img in imageData) {
+        for (var img in imageData) {
             // if is due to JSLint: http://www.jslint.com/lint.html#forin
             if (imageData.hasOwnProperty(img)) {
-                var imageElement = document.createElement("img");
+                imageElement = document.createElement("img");
                 imageElement.src = img.url;
                 document.getElementById("container").appendChild(imageElement);
             }
