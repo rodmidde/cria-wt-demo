@@ -46,7 +46,7 @@ function checkNumberFormat(){
 }
 
 function isValidSMS(sms){
-    return (sms.length > 0 && sms.length < 160);
+    return (sms.length > 0 && sms.length < 140);
 }
 
 function isValidPhonenumber(phoneNumber){
