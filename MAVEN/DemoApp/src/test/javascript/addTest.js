@@ -5,7 +5,7 @@
  * how Jasmine matchers like toBe, toEquals etc. work
  *
  */
-describe('The add functions',function(){
+describe('The add function',function(){
     it('should add two numbers and return five',function(){
 
         var number1 = 1;
