@@ -7,6 +7,13 @@
  */
 var EventUtil = {
 
+    /**
+     * Since IE9 there should not be a difference in adding event handlers
+     *
+     * @param element
+     * @param type
+     * @param handler
+     */
     addHandler: function(element, type, handler){
         if (element.addEventListener){
             element.addEventListener(type, handler, false);
@@ -14,6 +21,23 @@ var EventUtil = {
             element.attachEvent("on" + type, handler);
         } else {
             element["on" + type] = handler;
+        }
+    },
+
+    /**
+     * Since IE9 there should not be a difference in removing event handlers
+     *
+     * @param element
+     * @param type
+     * @param handler
+     */
+    removeHandler: function(element, type, handler){
+        if (element.removeEventListener){
+            element.removeEventListener(type, handler, false);
+        } else if (element.detachEvent){
+            element.detachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = null;
         }
     },
 
@@ -87,16 +111,6 @@ var EventUtil = {
             event.preventDefault();
         } else {
             event.returnValue = false;
-        }
-    },
-
-    removeHandler: function(element, type, handler){
-        if (element.removeEventListener){
-            element.removeEventListener(type, handler, false);
-        } else if (element.detachEvent){
-            element.detachEvent("on" + type, handler);
-        } else {
-            element["on" + type] = null;
         }
     },
 
