@@ -7,14 +7,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <title>Kill default FF behaviour</title>
     <link rel="stylesheet" href="styles/style.css" type="text/css"/>
-
-    <script type="text/javascript" src="script/ffFunctions.js"></script>
 </head>
-<body oncontextmenu="stopRechtsKlik3(event);">
-<div id="divblauw" oncontextmenu="stopRechtsKlik1(event);">
+<body>
+<div id="divblauw">
     DIV
 </div>
-<div id="divrood" oncontextmenu="stopRechtsKlik2(event);">
+<div id="divrood">
     DIV
 </div>
 <div id="divtekst">
@@ -22,6 +20,7 @@
         1.Rechtsklik ergens in het groene scherm. Een menu opent zich zoals je zou verwachten.
         Het is namelijk default gedrag van een browser.
     </p>
+
     <p>
         2.Rechtsklik nu op het blauwe divje. Er komt in eerste instantie geen menu.
         De eventhandler voor oncontextmenu handelt het event eerst af. Dan komt er toch
@@ -47,5 +46,6 @@
         Dit event kan op meerdere elementen worden afgevangen. O.a. ook op plaatjes.
     </p>
 </div>
+<script type="text/javascript" src="script/ffFunctions.js"></script>
 </body>
 </html>
