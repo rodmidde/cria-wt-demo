@@ -1,0 +1,21 @@
+body{
+    background-color	: green;
+}
+#divtekst{
+    background-color	: yellow;
+    font-size		: 20px;
+}
+#divblauw{
+    background-color	: blue;
+    font-size		: 2em;
+    width		: 100px;
+    height		: 100px;
+    margin		: 30px;
+}
+#divrood{
+    background-color	: red;
+    font-size		: 2em;
+    width		: 100px;
+    height		: 100px;
+    margin		: 30px;
+}
