@@ -58,6 +58,12 @@
                     <jsSrcDir>${jsSrc}</jsSrcDir>
                     <jsTestSrcDir>src/test/javascript</jsTestSrcDir>
                     <junitXmlReportFileName>../surefire-reports/TEST-jasmine.xml</junitXmlReportFileName>
+                    <preloadSources>
+                        <!-- INCLUDE extra sources first when you have more JavaScript files
+
+                            <include>../../src/main/javascript/ImageLibrary.js</include>
+                        -->
+                    </preloadSources>
                 </configuration>
             </plugin>
 
