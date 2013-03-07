@@ -55,6 +55,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <haltOnFailure>false</haltOnFailure>
                     <jsSrcDir>${jsSrc}</jsSrcDir>
                     <jsTestSrcDir>src/test/javascript</jsTestSrcDir>
                     <junitXmlReportFileName>../surefire-reports/TEST-jasmine.xml</junitXmlReportFileName>
