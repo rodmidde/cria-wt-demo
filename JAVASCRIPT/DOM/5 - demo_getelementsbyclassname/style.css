@@ -1,0 +1,15 @@
+.full {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    float: left;
+    margin-left: 5px;
+}
+
+.dimmed {
+    width: 50px;
+    height: 50px;
+    background-color: #696969;
+    float: left;
+    margin-left: 5px;
+}
