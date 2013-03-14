@@ -44,23 +44,28 @@ var request = createCORSRequest("get", "http://api.flickr.com/services/feeds/pho
         jsoncallback: "handleCorsRequest"
     });
 
-function handleCorsRequest()
+function handleCorsRequest(data)
 {
-    alert("We've had a callback!");
+    for(var i=0;i<data.items.length;i++)
+    {
+        var flickrImage = document.createElement("img");
+        flickrImage.src = data.items[i].media.m;
+        document.getElementById("images").appendChild(flickrImage);
+    }
 }
 // We're not allowed to set the Origin header manually, this is done by the
 // browser so make sure to run from localhost and not local file
 // request.setRequestHeader('Origin', 'http://www.han.nl');
 
 // FLICKR (but also YAHOO) does not support requests coming from localhost, bad luck
-request.setRequestHeader('Access-Control-Allow-Origin','http://localhost');
+request.setRequestHeader('Access-Control-Allow-Origin','*');
 request.setRequestHeader('Access-Control-Allow-Methods','GET');
 // YAHOO supports the OpenSocial function to do this http://developer.yahoo.com/yql/guide/yql-code-examples.html#yql_javascript
-// Alternatively, use jQuery with JSONP
+// Alternatively, use jQuery with JSONP or use Chrome with --disable-web-security option
 
 if (request) {
     request.onload = function () {
-        alert(request.responseText)
+       var cb = eval(request.responseText);
     };
     request.send();
 }
