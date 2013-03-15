@@ -64,6 +64,8 @@
 
                             <include>../../src/main/javascript/ImageLibrary.js</include>
                         -->
+                        <source>../../src/main/javascript/libs/jquery-1.9.1.min.js</source>
+                        <source>../../src/main/javascript/libs/jasmine-jquery-1.5.0.js</source>
                     </preloadSources>
                 </configuration>
             </plugin>
@@ -77,20 +79,6 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.1</version>
-                <executions>
-                    <execution>
-                        <id>compress-js</id>
-                        <goals>
-                            <goal>compress</goal>
                         </goals>
                     </execution>
                 </executions>
