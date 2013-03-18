@@ -2,20 +2,22 @@
  * User: mdkr
  * Date: 3/13/13
  */
-$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-    {
+function buildFlickImageURL(item) {
+    return "http://farm" + item.farm + ".staticflickr.com/" + item.server + "/" + item.id + "_" + item.secret + ".jpg";
+}
+
+// Please replace with your own key
+const api_key = "a3c12778b671de7596aefc249494580f";
+
+$.getJSON("http://api.flickr.com/services/rest/?", {
+        method: "flickr.photos.search",
+        nojsoncallback: 1,
+        format: "json",
         tags: "thetis-pupillen",
-        tagmode: "any",
-        format: "json"
-        /**
-         * Other URLs may require one or more of the following extra parameters:
-         *   dataType: "jsonp",
-         *   jsonp: "callback",
-         *   jsonpCallback: "cbfunc",
-         */
-    },
+        api_key: api_key},
     function (data) {
-        $.each(data.items, function (i, item) {
-            $("<img/>").attr("src", item.media.m).appendTo("#images");
+        $.each(data.photos.photo, function (i, item) {
+            $("<img/>").attr("src", buildFlickImageURL(item)).appendTo("#images");
         });
     });
+

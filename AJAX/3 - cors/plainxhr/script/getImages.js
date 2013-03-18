@@ -3,6 +3,9 @@
  * Date: 3/13/13
  */
 
+// Please replace with your own key
+const api_key = "a3c12778b671de7596aefc249494580f";
+
 /**
  * @see http://developer.yahoo.com/yql/guide/yql-code-examples.html
  * @param url
@@ -11,7 +14,7 @@
  */
 function parameterize(url, parameters) {
     var parts = [];
-    for(var each in parameters) if (parameters.hasOwnProperty(each)) {
+    for (var each in parameters) if (parameters.hasOwnProperty(each)) {
         parts.push(encodeURIComponent(each) + '=' + encodeURIComponent(parameters[each]));
     }
     return url + parts.join('&');
@@ -35,43 +38,49 @@ function createCORSRequest(method, url, parameters) {
     return xhr;
 }
 
-var request = createCORSRequest("get", "http://api.flickr.com/services/feeds/photos_public.gne?",
-    {
-        tags: "thetis-pupillen",
-        tagmode: "any",
-        format: "json",
-        jsonp: false,
-        jsoncallback: "handleCorsRequest"
-    });
+function getImagesFromFlickr() {
+    "use strict";
+    var Fn, xhr, url, res;
 
-function handleCorsRequest(data)
-{
-    for(var i=0;i<data.items.length;i++)
-    {
+
+    /**
+     * We can only create an authenticated (using API-key) request to Flickr,
+     * but a CORS request is allowed.
+     *
+     * @type {XMLHttpRequest}
+     */
+    xhr = createCORSRequest('GET', "http://api.flickr.com/services/rest/?", {
+        method: "flickr.photos.search",
+        nojsoncallback: 1,
+        format: "json",
+        tags: "thetis-pupillen",
+        api_key: api_key
+    });
+    xhr.onload = function () {
+        Fn = Function;
+        res = new Fn('handleCorsRequest(' + xhr.responseText + ')')();
+    };
+    xhr.send();
+}
+
+/**
+ * Flickr URLs are built like: http://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+ * @see http://www.flickr.com/services/api/misc.urls.html
+ * @param item
+ * @returns {string}
+ */
+function buildFlickImageURL(item) {
+    return "http://farm" + item.farm + ".staticflickr.com/" + item.server + "/" + item.id + "_" + item.secret + ".jpg";
+}
+
+function handleCorsRequest(data) {
+    var items = data.photos.photo;
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
         var flickrImage = document.createElement("img");
-        flickrImage.src = data.items[i].media.m;
+        flickrImage.src = buildFlickImageURL(item);
         document.getElementById("images").appendChild(flickrImage);
     }
 }
-// We're not allowed to set the Origin header manually, this is done by the
-// browser so make sure to run from localhost and not local file
-//
-// FROM https://bugs.webkit.org/show_bug.cgi?id=50773:
-// We don't usually send Origin with GET requests.  We do send it for XMLHttpRequest if we're using CORS.
-// Maybe we're not using CORS for some reason?
 
-// request.setRequestHeader('Origin', 'http://www.han.nl');
-
-// FLICKR (but also YAHOO) does not support requests coming from localhost, bad luck
-request.setRequestHeader('Access-Control-Allow-Origin','*');
-request.setRequestHeader('Access-Control-Allow-Methods','GET');
-
-// YAHOO supports the OpenSocial function to do this http://developer.yahoo.com/yql/guide/yql-code-examples.html#yql_javascript
-// Alternatively, use jQuery with JSONP or use Chrome with --disable-web-security option
-
-if (request) {
-    request.onload = function () {
-       var cb = eval(request.responseText);
-    };
-    request.send();
-}
+window.onload = getImagesFromFlickr;
