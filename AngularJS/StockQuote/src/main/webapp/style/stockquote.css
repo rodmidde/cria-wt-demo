@@ -1,0 +1,21 @@
+.higher {
+    background-image: url("../images/higher.png");
+    background-repeat:no-repeat;
+    width: 30px;
+}
+
+.lower {
+    background-image: url("../images/lower.png");
+    background-repeat:no-repeat;
+    width: 30px;
+}
+
+.steady {
+    background-image: url("../images/steady.png");
+    background-repeat:no-repeat;
+    width: 30px;
+}
+
+.name {
+    width: auto;
+}
