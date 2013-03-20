@@ -123,6 +123,7 @@
                     <jsDir>src/main/javascript</jsDir>
                     <includePrivate>true</includePrivate>
                     <includeUndocumented>true</includeUndocumented>
+                    <excludes>**/libs/**/*.js</excludes>
                 </configuration>
                 <reportSets>
                     <reportSet>
