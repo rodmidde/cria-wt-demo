@@ -91,7 +91,7 @@
             <plugin>
                 <groupId>com.github.timurstrekalov</groupId>
                 <artifactId>saga-maven-plugin</artifactId>
-                <version>1.1.0</version>
+                <version>1.4.0</version>
                 <executions>
                     <execution>
                         <phase>site</phase>
@@ -107,8 +107,9 @@
                     </includes>
                     <outputDir>${project.build.directory}/site</outputDir>
                     <noInstrumentPatterns>
-                        <pattern>b.+/test/.+.jsb</pattern>
-                        <pattern>b.+/assets/.+.jsb</pattern>
+                        <pattern>.*/test/.*</pattern>
+                        <pattern>.*/libs/.*</pattern>
+                        <pattern>.*/spec/.*</pattern>
                     </noInstrumentPatterns>
                     <outputStrategy>TOTAL</outputStrategy>
                 </configuration>
