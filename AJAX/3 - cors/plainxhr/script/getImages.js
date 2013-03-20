@@ -21,7 +21,8 @@ function parameterize(url, parameters) {
 };
 
 /**
- * Function original from N. Zakas: http://www.nczonline.net/blog/2010/05/25/cross-domain-ajax-with-cross-origin-resource-sharing/
+ * Function original from N. Zakas:
+ * http://www.nczonline.net/blog/2010/05/25/cross-domain-ajax-with-cross-origin-resource-sharing/
  *
  * @param method
  * @param url
