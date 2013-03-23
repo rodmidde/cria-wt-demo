@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# Manifest version: 1
+# Update the version with every edit!
+
+presentation.html
+/styles
+/scripts
+/movies
+/audio
+/images
