@@ -1,0 +1,1 @@
+Demo project to test how to setup Jasmine to be able to run with the JsTestDriver plugin (PhpStorm) as well as with the jasmine-maven-plugin.
