@@ -17,30 +17,15 @@
         <h1>AutoBay</h1>
     </header>
     <section id="main">
-        <table id="car-table" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <td>Brand</td>
-                    <td>Type</td>
-                    <td>Image</td>
-                    <td>Price</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="car in cars">
-                    <td>{{car.brand}}</td>
-                    <td>{{car.type}}</td>
-                    <td><img ng-src="{{car.image}}" class="small"></td>
-                    <td>{{car.price}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <article ng-include src="'partials/carList.html'"></article>
+        <article ng-include src="'partials/carDetail.html'"></article>
     </section>
 </section>
 <footer id="info">
 
 </footer>
 <script src="../javascript/libs/angular/angular.js"></script>
+<script src="../javascript/libs/angular-ui/angular-ui.js"></script>
 <script src="../javascript/app.js"></script>
 <script src="../javascript/carProvider.js"></script>
 <script src="../javascript/carController.js"></script>

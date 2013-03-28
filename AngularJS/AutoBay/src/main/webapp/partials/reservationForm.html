@@ -1,0 +1,27 @@
+<h3>Reservation</h3>
+<form>
+    <div class="control-group">
+        <label class="control-label" for="inputName">Name</label>
+
+        <div class="controls">
+            <input type="text" name="name" id="inputName" placeholder="Name" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPhonenumber">Phonenumber</label>
+
+        <div class="controls">
+            <input type="text" name="phoneNumber" id="inputPhonenumber" placeholder="Phonenumber" required pattern='06[\-]{0,1}\d{8}'>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="inputBid">Bid</label>
+
+        <div class="controls">
+            <input type="text" name="bid" id="inputBid" placeholder="Bid" ng-model="" ui-validate="'validateBid($value, selectedCar.price)'">
+        </div>
+    </div>
+
+    <p><input type="submit" value="Send Reservation" class="btn btn-primary" id="btnSendReservation"></p>
+</form>

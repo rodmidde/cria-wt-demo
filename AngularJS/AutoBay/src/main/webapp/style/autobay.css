@@ -1,3 +1,14 @@
 .small {
     width: 100px;
 }
+
+#car-table {
+    width: 60%;
+    float: left;
+    margin-right: 20px;
+}
+
+#car-details-table {
+    width: 30%;
+    float: left;
+}

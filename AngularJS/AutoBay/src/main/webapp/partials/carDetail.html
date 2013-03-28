@@ -1,0 +1,35 @@
+<table id="car-details-table" class="table table-striped table-hover" ng-show="selectedCar">
+    <thead>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Brand</td>
+        <td>{{selectedCar.brand}}</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>{{selectedCar.type}}</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img ng-src="{{selectedCar.image}}"></td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>&euro; {{selectedCar.price}}</td>
+    </tr>
+    <tr>
+        <td>Fueltype</td>
+        <td>{{selectedCar.fuelType}}</td>
+    </tr>
+    <tr>
+        <td>Mileage</td>
+        <td>{{selectedCar.mileage}} km.</td>
+    </tr>
+    </tbody>
+</table>
+<div ng-include src="'partials/reservationForm.html'" ng-show="selectedCar"></div>
