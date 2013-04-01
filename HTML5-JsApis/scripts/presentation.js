@@ -1,56 +1,52 @@
-var ws;
 var presentation;
 var presentor = false;
+var socket;
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Initialize presentation
     if (window.location.hash == "#presentor") {
         presentor = true;
     }
-    
+
     presentation = new Presentation($(".slide"));
-    
-    // Initialize WebSocket 
-    ws = new WebSocket("ws://localhost:1740");
-    ws.onopen = function() {
-        alert("Socket opened...");    
-    };
-    
-    ws.onmessage = function (event) {
-        if (!presentor) {
-            switch(event.data) {
-                case "nextSlide":
-                    presentation.next();
-                    break;
-                case "previousSlide":
-                    presentation.previous();
-                    break;
+    socket = io.connect('http://localhost:1740');
+    socket.on('connect', function () {
+        socket.on('previousSlide', function () {
+            if (!presentor) {
+                presentation.previous();
             }
-        }
-    };
-    
-    ws.onclose = function() {
-        alert("Socket closed...");
-    };
+        });
+        socket.on('nextSlide', function () {
+            if (!presentor) {
+                presentation.next();
+            }
+        });
+
+        socket.on('disconnect', function () {
+            console.log("Socket closed...");
+        });
+    });
 });
 
 /* Presentation */
-var Presentation = function(slides) {
-    this.slides = (slides||[]).map(function(index, element) {
+var Presentation = function (slides) {
+    this.slides = (slides || []).map(function (index, element) {
         return new Slide(element, index);
     });
-    
+
     // On key change
     var _t = this;
-    $(document).keyup(function(event) { _t.keyHandler(event); }, false);
-    
+    $(document).keyup(function (event) {
+        _t.keyHandler(event);
+    }, false);
+
     // Set correct slide according to hash
     this.currentSlide = parseInt(window.location.hash.split('#slide')[1], 10);
-    
+
     if (isNaN(this.currentSlide)) {
         this.currentSlide = this.firstSlide;
     }
-    
+
     this.update();
 };
 
@@ -58,51 +54,53 @@ Presentation.prototype = {
     firstSlide: 1,
     currentSlide: 1,
 
-    update: function() {
+    update: function () {
         // Update the hash to the correct slide number
         window.location.hash = "slide" + this.currentSlide;
-        
+
         // Update the state of the nearby slides
-        for (var x = this.currentSlide-1; x < this.currentSlide+7; x++) {
+        for (var x = this.currentSlide - 1; x < this.currentSlide + 7; x++) {
             if (this.slides[x - 4]) {
                 this.slides[x - 4].setState(Math.max(0, x - this.currentSlide));
             }
         }
     },
-    next: function() {
+    next: function () {
         this.currentSlide = Math.min(this.currentSlide + 1, this.slides.length);
         this.update();
     },
-    previous: function() {
+    previous: function () {
         this.currentSlide = Math.max(this.currentSlide - 1, this.firstSlide);
         this.update();
     },
-    first: function() {
+    first: function () {
         this.currentSlide = this.firstSlide;
         this.resetSlides();
         this.update();
     },
-    last: function() {
+    last: function () {
         this.currentSlide = this.slides.length;
         this.resetSlides();
         this.update();
     },
-    goToSlide: function(slideNr) {
+    goToSlide: function (slideNr) {
         this.currentSlide = slideNr;
         this.update();
     },
-    keyHandler: function(event) {
-        if (event.target.nodeName == "INPUT") { return; }
-    
-        switch(event.keyCode) {
+    keyHandler: function (event) {
+        if (event.target.nodeName == "INPUT") {
+            return;
+        }
+
+        switch (event.keyCode) {
             case 37: // Left arrow
                 this.previous();
-                ws.send(["previousSlide"]);
+                socket.emit('previousSlide', {message: "previousSlide"});
                 break;
             case 39: // Right arrow
             case 32: // Spacebar
                 this.next();
-                ws.send(["nextSlide"]);
+                socket.emit('nextSlide', {message: "nextSlide"});
                 break;
             case 38: // Up arrow
                 this.last();
@@ -112,7 +110,7 @@ Presentation.prototype = {
                 break;
         }
     },
-    resetSlides: function() {
+    resetSlides: function () {
         for (var slideNr = 0; slideNr < this.slides.length; slideNr++) {
             this.slides[slideNr].setState(0);
         }
@@ -120,48 +118,50 @@ Presentation.prototype = {
 };
 
 /* Slide */
-var Slide = function(element, index) {
+var Slide = function (element, index) {
     this.element = element;
     this.index = index;
     this._jt = $(this.element);
-    
+
     var _t = this;
-    $(this._jt).click(function(event) { _t.keyHandler(event); }, false);
-    
+    $(this._jt).click(function (event) {
+        _t.keyHandler(event);
+    }, false);
+
     this.setFooter();
 };
 
 Slide.prototype = {
     states: ["distant-past", "far-past", "past", "current", "future", "far-future", "distant-future"],
-    
-    setState: function(stateNr) {
+
+    setState: function (stateNr) {
         // Remove all state classes from this slide
         for (var i = 0; i < this.states.length; i++) {
             this._jt.removeClass(this.states[i]);
         }
-        
+
         // Add the correct state to this slide
         this._jt.addClass(this.states[stateNr]);
     },
-    setFooter: function() {
+    setFooter: function () {
         var footer = document.createElement("footer");
         var slideNr = document.createElement("span");
         slideNr.innerHTML = this.index + 1;
         slideNr.className = "slideNr";
-        
+
         var presentationTitle = document.createElement("span");
         presentationTitle.innerHTML = "AVISI Tech Day | HTML 5 and CSS3";
         presentationTitle.className = "presentationTitle";
-        
+
         footer.appendChild(slideNr);
         footer.appendChild(presentationTitle);
         this.element.appendChild(footer);
     },
-    showNext: function() {
+    showNext: function () {
         //alert("Show next");
     },
-    keyHandler: function(event) {
-        switch(event.button) {
+    keyHandler: function (event) {
+        switch (event.button) {
             case 0: // Left mouse button
                 this.showNext();
                 break;

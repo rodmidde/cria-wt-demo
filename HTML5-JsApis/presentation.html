@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="manifest.cache">
+<html lang="en"> <!-- manifest="manifest.cache"> -->
 <head>
 	<title>AVISI Tech Day | HTML5 and CSS3</title>
 	<meta charset="utf-8" />
@@ -8,8 +8,8 @@
     
     <script src="scripts/jquery-1.4.2.min.js"></script>
     <script src="scripts/html5-1.5.1.min.js"></script>
-    <script src="scripts/WebSocket.js"></script>
-    
+
+    <script type="text/javascript" src="http://localhost:1740/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="scripts/presentation.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 </head>
@@ -273,7 +273,6 @@ aside, nav, article {
                     <li>New events and methods</li>
                     <li>Datalist</li>
                     <li>Output</li>
-                    <li><a href="http://www.rikkertkoppes.com/thoughts/wf2/" target="_blank">Repitition model</a></li>
                 </ul>
             </section>
         </div>
@@ -1019,7 +1018,7 @@ if (<b>navigator.geolocation</b>) {
                     Drag an image on me!
                 </div>
                 
-                <table id="file-table">
+                <table id="file-table" style="display: block">
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
@@ -1722,10 +1721,7 @@ div {
                     <li>Faster</li>
                     <li>Easier to use</li>
                     <li>More possibilities</li>
-                </ul>
-                
-                <ul style="margin-top: 40px;">
-                    <li><a href="http://mugtug.com/darkroom/">MugTug Darkroom</a></li>
+                		<li>Showcases?</li>
                 </ul>
             </section>
         </div>
@@ -1741,45 +1737,7 @@ div {
                     <li>Libraries</li>
                 </ul>
 
-                <h2>HTML5test.com</h2>
-                <table>
-                    <tr>
-                        <th>Browser</th>
-                        <th>Version</th>
-                        <th>Score (out of 300)</th>
-                        <th>Bonus</th> 
-                    </tr>
-                    <tr>
-                        <td>Google Chrome (webkit)</td>
-                        <td>6.0.458.1 dev</td>
-                        <td>221</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Safari (webkit)</td>
-                        <td>5.0 (6533.16)</td>
-                        <td>208</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>Firefox</td>
-                        <td>3.6.6</td>
-                        <td>139</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Opera</td>
-                        <td>10.50 pre-alpha ... 10.60?</td>
-                        <td>82</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Internet Explorer</td>
-                        <td>7.0.6002.18005</td>
-                        <td>12</td>
-                        <td>0</td>
-                    </tr>
-                </table>
+                <h2>caniuse.com</h2>
             </section>
         </div>
         
@@ -1804,7 +1762,7 @@ div {
                 </ul>
             </section>
         </div>
-        
+        <!--
         <div class="slide">
             <section>
                 <header><h1>Hands-on</h1></header>
@@ -1816,6 +1774,7 @@ div {
                 </ul>   
             </section>
         </div>
+        -->
     </div>
     </div>
     
