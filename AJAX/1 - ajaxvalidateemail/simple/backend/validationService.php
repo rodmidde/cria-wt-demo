@@ -7,10 +7,10 @@ header("Content-Type: text/xml; charset=utf-8");
 
 if ($_REQUEST["method"] == "validateEmail")
 {
-	$emailaddresses = getDataFromDataSource("SELECT COUNT(*) AS emailaddressCount 
+	$emailaddresses = getDataFromDataSource("SELECT COUNT(*) AS emailaddressCount
 		from adresboek where emailaddress = '" . $_REQUEST["emailaddress"] ."'");
 	$emailaddressesForJSON = array();
-	while( $row = mysql_fetch_array($emailaddresses))
+	while( $row = mysql_fetch_assoc($emailaddresses))
 	{
 		array_push($emailaddressesForJSON, $row);
 	}
