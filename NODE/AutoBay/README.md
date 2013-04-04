@@ -7,11 +7,13 @@ Er zijn twee mogelijke setups, lokaal of VirtualBox.
 * Installeer MongoDB: http://www.mongodb.org/downloads
 * Installeer Node.js (http://nodejs.org/download/) inclusief de volgende modules(zie ook http://cria.tezzt.nl/wordpress/?page_id=52859): 
 
+~~~
   npm install -g express # install express framework, see http://expressjs.com
   npm install -g supervisor # for development, see https://github.com/isaacs/node-supervisor
   npm install -g forever # continuous running, see https://github.com/nodejitsu/forever
   npm install -g mongoose # database driver, see http://mongoosejs.com
   npm install -g socket.io # websocket implementation, see http://socket.io
+~~~
 
 * Installeer RockMongo (web-based admin voor mongo): http://rockmongo.com/downloads
 
