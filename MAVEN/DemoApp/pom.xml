@@ -62,6 +62,12 @@
                     <sourceExcludes>
                         <exclude>**/libs/**/*.js</exclude>
                     </sourceExcludes>
+                    <!-- Use the sourceIncludes tag to force the order in which the js files get loaded
+                    <sourceIncludes>
+                        <include>**/FirstFile.js</include>
+                        <include>**/SecondFile.js</include>
+                    </sourceIncludes>
+                    -->
                     <preloadSources>
                         <!-- INCLUDE extra sources first when you have more JavaScript files
 
