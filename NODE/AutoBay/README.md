@@ -7,6 +7,7 @@ Er zijn twee mogelijke setups, lokaal of VirtualBox.
 * Installeer MongoDB: http://www.mongodb.org/downloads
 * Installeer Node.js (http://nodejs.org/download/) inclusief de volgende modules(zie ook http://cria.tezzt.nl/wordpress/?page_id=52859): 
 * Zorg dat je c:\nodejs, c:\nodejs\node_modules en c:\windows\system32 in je PATH staan. Maak hiervoor een environment variabele aan (gebruikersvariabele, geen systeemvariabele) en zet deze op (c:\node is het standaard pad):
+
 ~~~
   %PATH%;c:\windows\system32;c:\nodejs;c:\nodejs\node_modules
 ~~~
