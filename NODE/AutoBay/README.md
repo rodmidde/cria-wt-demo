@@ -42,7 +42,7 @@ Installeer XAMPP. Als Apache niet wil starten check dan dat poort 80 en 443 niet
   - client: aanroepen van urls met HTTP of WebSockets, het verwerken van JSON, het tonen van JSON data in de vorm van dynamische HTML
   - server: ontvangen van HTTP/WebSocket-aanroepen, aanroepen van queries en connecties met Mongo en het returnen van (JSON) data
 * Realiseer de database door een schema te creeren met Mongoose en een stukje code waarmee je enkele queries kunt testen door je .js bestand te runnen met Node. Je kunt met RockMongo of via de mongo command line checken of de juiste data erin staat.
-* Realiseer een HTTP- of WebSocket server die requests kan koppelen aan een of meerdere queries. Je kunt gebruiken van REST zoals in het voorbeeld (http://cria.tezzt.nl/wordpress/?page_id=64477), maar dat is niet noodzakelijk. 
+* Realiseer een HTTP- of WebSocket server die requests kan koppelen aan een of meerdere queries. Je kunt gebruik maken van REST zoals in het voorbeeld (http://cria.tezzt.nl/wordpress/?page_id=64477), maar dat is niet noodzakelijk. Je REST/HTTP server kun je het beste bouwen met Express, voor WebSockets is Socket.IO een prima start.
 * Schrijf wat code waarmee je de HTTP-call kan doen (XmlHttpRequest of jQuery/etc.) en kunt testen. Zorg ervoor dat je alvast JSON kunt alerten of kunt tonen in je browser.
 * Schrijf code waarmee je de JSON kunt parsen en kunt representeren in HTML/CSS
 * Gegeven de algemene stappen kun je nu:
