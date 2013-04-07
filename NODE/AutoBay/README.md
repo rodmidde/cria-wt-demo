@@ -5,14 +5,16 @@ Er zijn twee mogelijke setups, lokaal of VirtualBox.
 
 ## SETUP 1 omgeving: lokaal
 * Installeer MongoDB: http://www.mongodb.org/downloads
-* Installeer Node.js (http://nodejs.org/download/) inclusief de volgende modules(zie ook http://cria.tezzt.nl/wordpress/?page_id=52859): 
+* Installeer Node.js (http://nodejs.org/download/). 
 * Zorg dat je c:\nodejs, c:\nodejs\node_modules en c:\windows\system32 in je PATH staan. Maak hiervoor een environment variabele aan (gebruikersvariabele, geen systeemvariabele) en zet deze op (c:\node is het standaard pad):
 
 ~~~
   %PATH%;c:\windows\system32;c:\nodejs;c:\nodejs\node_modules
 ~~~
 
-Let op: Kopieer de regels niet rechtstreeks, maar tot aan het #-je, dit is comment. 
+* Installeer de volgende modules(zie ook http://cria.tezzt.nl/wordpress/?page_id=52859): 
+
+Let op: Kopieer de regels niet rechtstreeks, maar tot aan het #-je, dit is comment! 
 ~~~
   npm install -g express # install express framework, see http://expressjs.com
   npm install -g supervisor # for development, see https://github.com/isaacs/node-supervisor
@@ -71,5 +73,11 @@ Installeer XAMPP. Als Apache niet wil starten check dan dat poort 80 en 443 niet
   - Schrijf wat code waarmee je de HTTP-call kan doen (XmlHttpRequest of jQuery/etc.) en kunt testen. Zorg ervoor dat je alvast JSON kunt alerten of kunt tonen in je browser.
   - Vervang je (tijdelijke/hardcoded) JSON door de JSON die van het back-end terug komt
   - Bouw de rest van de details (max. aantal reserveringen, validatie etc.) 
+
+Bij problemen met installatie op Windows geeft StackOverFlow antwoord maar ook een van de volgende youtuve video's kan handig zijn:
+* http://www.youtube.com/watch?v=jm6E1smu408 (Node JS op Windows)
+* http://www.youtube.com/watch?v=RUH1y6H55Ao (Hoe een HTTP server te maken in Node)
+* http://www.youtube.com/watch?v=4fQsDiioj3I (sorry voor het slechte Engels, intro voor Mongo en Mongoose)
+* http://www.youtube.com/watch?v=F2qsnYkF-5M (hoe met Express een REST service te bouwen)
 
 HAVE FUN!
