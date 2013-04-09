@@ -37,6 +37,7 @@ function Server() {
             var rody = new SoccerPlayer({ name: data.name, club: data.club, playerNumber: data.playerNumber, isSuspended: false });
             rody.save(function (err) {
                 console.log('done');
+                socket.emit("saveReady")
             });
         });
     }
