@@ -6,6 +6,7 @@
  */
 (function FormHandler() {
     var io = new SocketIOConnector(this);
+    var that = this;
 
     /**
      * When the form is submitted it gets serialized to JSON and sent to the backend using the SocketIOConnector.
@@ -15,13 +16,24 @@
         $('#btnSave').toggleClass("disabled");
         var $form = $(this);
         var data = $form.serializeFormJSON();
-        io.post("saveNewPlayer", data);
+        // the third parameter is optional and is used to capture the return value when you use SimpleAnsweringServer
+        io.post("saveNewPlayer", data, function (response) {
+            that.saveReady(response);
+        });
         e.preventDefault();
     });
 
-    this.saveReady = function()
-    {
+    /**
+     * Only called when you use the SimpleServer.js or Server.js
+     */
+    this.saveReady = function (response) {
         $('#btnSave').toggleClass("disabled");
+        $(function () {
+            $('<div id="saveConfirmation" title="Saved"><p>Player ' + response.name + ' saved</p></div>').appendTo("body");
+            $("#saveConfirmation").dialog({close: function (event, ui) {
+                $("#saveConfirmation").remove()
+            }});
+        });
     }
 
     /**

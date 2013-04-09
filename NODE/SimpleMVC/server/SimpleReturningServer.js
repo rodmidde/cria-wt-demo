@@ -1,6 +1,7 @@
 /**
- * User: mdkr
- * Date: 3/23/13
+ * This servers differs a little bit from SimpleServer:
+ * - it returns data instead of putting the answer on the socket with an own message
+ * - see FormHandler.js in the client to see how this effects the client code
  */
 
 function Server() {
@@ -8,7 +9,6 @@ function Server() {
     var mongoose = require('mongoose');
     mongoose.connect('mongodb://localhost/simplemvc');
     var SoccerPlayer = mongoose.model('SoccerPlayer', { name: String, club: String, playerNumber: Number, isSuspended: Boolean });
-
 
     /**
      * Starts a static http connection on port 8000 and a websocket server on 1337
@@ -31,11 +31,12 @@ function Server() {
      * @param socket
      */
     this.handleSocketConnection = function (socket) {
-        socket.on("saveNewPlayer", function (data) {
-            var rody = new SoccerPlayer({ name: data.name, club: data.club, playerNumber: data.playerNumber, isSuspended: false });
-            rody.save(function (err) {
+        socket.on("saveNewPlayer", function (data, callbackfn) {
+            var newPlayer = new SoccerPlayer({ name: data.name, club: data.club, playerNumber: data.playerNumber, isSuspended: false });
+            newPlayer.save(function (err) {
                 console.log('done');
-                socket.emit("saveReady", rody.toJSON());
+                // This call will set the JSON representation of the saved object as a "return" value
+                callbackfn(newPlayer.toJSON());
             });
         });
     }
