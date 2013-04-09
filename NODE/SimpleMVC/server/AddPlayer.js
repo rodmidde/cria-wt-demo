@@ -1,3 +1,11 @@
+/**
+ * Run this example with node to see how mongoose connects to MongoDB
+ *
+ * Prerequisites:
+ * - Mongod running
+ * - node module mongoose installed (npm install mongoose)
+ * @type {*}
+ */
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/simplemvc');
 
