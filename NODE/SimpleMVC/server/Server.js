@@ -13,11 +13,7 @@ function Server() {
      */
     this.start = function () {
         // Socket.io is used for handling dynamic requests (JSON)
-        var connect = require("connect"),
-            io = require("socket.io").listen(1337);
-        // Due to our folder structure we need to add /../ before accessing the client folder that serves as
-        // document root and web root
-        connect().use(connect.static(__dirname + "/../client")).listen(8000);
+        var io = require("socket.io").listen(1337);
         
         // Create a http server that serves static data from ../client
         var http = require('http'); 
@@ -143,11 +139,17 @@ function Server() {
             res.setHeader('Content-Type', contentType);
             res.writeHead(200);
      
-            util.pump(stream, res, function(error) {
-                //Only called when the res is closed or an error occurs
-                res.end();
-                return;
+            stream.pipe(res, { end: false });
+            stream.on("end", function() {
+              res.end();
+              return;
             });
+
+            //util.pump(stream, res, function(error) {
+                //Only called when the res is closed or an error occurs
+                //res.end();
+                //return;
+            //});
      
         }         
     }
