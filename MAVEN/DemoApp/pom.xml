@@ -25,10 +25,6 @@
         <url>http://www.han.nl</url>
     </organization>
 
-    <properties>
-        <jsSrc>src/main/javascript</jsSrc>
-    </properties>
-
     <build>
         <resources>
             <resource>
@@ -100,7 +96,7 @@
                 <version>1.4.0</version>
                 <executions>
                     <execution>
-                        <phase>site</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>coverage</goal>
                         </goals>
@@ -111,7 +107,7 @@
                     <includes>
                         SpecRunner.html
                     </includes>
-                    <outputDir>${project.build.directory}/site</outputDir>
+                    <outputDir>${saga.output.dir}</outputDir>
                     <noInstrumentPatterns>
                         <pattern>.*/test/.*</pattern>
                         <pattern>.*/libs/.*</pattern>
@@ -119,6 +115,30 @@
                     </noInstrumentPatterns>
                     <outputStrategy>TOTAL</outputStrategy>
                 </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-antrun-plugin</artifactId>
+              <version>1.7</version>
+              <executions>
+                <execution>
+                  <id>saga-to-sonar-lcov</id>
+                  <phase>verify</phase>
+                  <goals>
+                    <goal>run</goal>
+                  </goals>
+                  <configuration>
+                    <target>
+                      <echo message="setting up sonar lcov file (from saga): ${saga.output.coverage.sonar.lcov.file} ..." />
+                      <copy file="${saga.output.coverage.file}" tofile="${saga.output.coverage.sonar.lcov.file}" />
+                      
+                      <echo message="replacing '${saga.output.lcov.source.dir.path} with '${sonar.lcov.source.dir.path}' in ${saga.output.coverage.sonar.lcov.file}" />
+                      <replace file="${saga.output.coverage.sonar.lcov.file}"
+                          token="${saga.output.lcov.source.dir.path}"
+                          value="${sonar.lcov.source.dir.path}" />
+                    </target>
+                  </configuration>
+                </execution>
+              </executions>
             </plugin>
         </plugins>
 
@@ -152,4 +172,23 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <properties>
+        <jsSrc>src/main/javascript</jsSrc>
+        <!-- properties for saga -->
+        <saga.output.dir>${project.build.directory}/coverage</saga.output.dir>
+        <saga.output.coverage.file>${saga.output.dir}/total-coverage.dat</saga.output.coverage.file>
+        <saga.output.coverage.sonar.lcov.file>${saga.output.dir}/total-coverage-sonar.dat</saga.output.coverage.sonar.lcov.file>
+        
+        <!-- properties for translating saga output to sonar lcov file -->
+        <saga.output.lcov.source.dir.path>SF:src/</saga.output.lcov.source.dir.path>
+        <sonar.lcov.source.dir.path>SF:src/main/javascript/</sonar.lcov.source.dir.path>
+        
+        <!-- properties for sonar -->
+        <sonar.language>js</sonar.language>     <!-- NOT javascript/JavaScript ! -->
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.javascript.lcov.reportPath>${saga.output.coverage.sonar.lcov.file}</sonar.javascript.lcov.reportPath>
+        <!-- used in build/properties -->
+        <sonar.sources>${basedir}/src/main/javascript</sonar.sources>
+    </properties>
 </project>
