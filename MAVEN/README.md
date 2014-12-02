@@ -26,6 +26,9 @@ TO RUN YOUR TESTCASES using DOM:
 - Visit the URL shown in the console in your browser
 - See how your tests are doing
 
+TO RUN YOUR TESTCASES (unittests) in a HEADLESS WAY (no browser needed)
+- Run mvn clean test
+
 FOR REPORTING
 - Run: mvn clean site. It will run testcases, generate code coverage, minify source code, generate JSDoc documentation and shows JSLint parsing results
 - Open target/site/index.html to see how you're doing
