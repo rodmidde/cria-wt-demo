@@ -1,7 +1,7 @@
 There are two strategies to start working with the project, however first you need to:
-- Download and install the latest JDK1.6 (!) version
+- Download and install the latest JDK (minimal 1.6) version
 - Set the Environment Variable JAVA_HOME to the location of your JDK installation path (usually c:\program files\Java\jdk1.6_22)
-- Download and install Maven 3.0.4
+- Download and install Maven 3.0.4 (some plugins have issues with Maven-versions > 3.0)
 - Add the bin-path of the Maven-install location to your PATH by adding/changing the PATH Environment Variable (http://java.com/en/download/help/path.xml)
 
 QUICK START
@@ -26,7 +26,7 @@ TO RUN YOUR TESTCASES using DOM:
 - Visit the URL shown in the console in your browser
 - See how your tests are doing
 
-TO RUN YOUR TESTCASES (unittests) in a HEADLESS WAY (no browser needed)
+TO RUN YOUR TESTCASES (unittests) in a HEADLESS WAY (no browser needed, so useful for CI-environments)
 - Run mvn clean test
 
 FOR REPORTING
